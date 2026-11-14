@@ -1,0 +1,15 @@
+# ClusterIP on purpose: the API is not exposed publicly by default.
+# Reach it with `kubectl -n agent port-forward svc/agent 8080:80`, or put a TLS ingress in front (see docs/deploy-aks.md).
+apiVersion: v1
+kind: Service
+metadata:
+  name: agent
+  namespace: agent
+spec:
+  type: ClusterIP
+  selector:
+    app: agent
+  ports:
+    - name: http
+      port: 80
+      targetPort: http

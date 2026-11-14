@@ -35,3 +35,7 @@ Each step prints the stop reason, token counts, the tool call and its result. Wa
 ## Next
 
 Move the tools behind an MCP server so the same loop can use any MCP server's tools.
+
+## Deploy to production
+
+An HTTP version of the agent (`service/`), Terraform for Azure (`infra/terraform/`) and Kubernetes manifests (`k8s/`) are in this repo. See [docs/deploy-aks.md](docs/deploy-aks.md).

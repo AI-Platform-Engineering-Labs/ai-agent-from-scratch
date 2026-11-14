@@ -1,0 +1,44 @@
+# Default deny, then allow only what the agent needs.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny
+  namespace: agent
+spec:
+  podSelector: {}
+  policyTypes: ["Ingress", "Egress"]
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: agent-allow
+  namespace: agent
+spec:
+  podSelector:
+    matchLabels:
+      app: agent
+  policyTypes: ["Ingress", "Egress"]
+  ingress:
+    # Only pods in this namespace. To add an ingress controller, allow its namespace here.
+    - from:
+        - podSelector: {}
+      ports:
+        - port: 8080
+  egress:
+    # DNS
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: kube-system
+      ports:
+        - port: 53
+          protocol: UDP
+        - port: 53
+          protocol: TCP
+    # HTTPS out: the Anthropic API and Microsoft Entra ID (workload identity token exchange)
+    - to:
+        - ipBlock:
+            cidr: 0.0.0.0/0
+      ports:
+        - port: 443
+          protocol: TCP
