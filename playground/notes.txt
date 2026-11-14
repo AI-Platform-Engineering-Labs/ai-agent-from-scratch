@@ -1,0 +1,5 @@
+Project Falcon - meeting notes
+- Launch date moved to March 14
+- Owner of the billing migration: Priya
+- Open risk: the staging database is 2 versions behind production
+- Action: Sam to confirm the rollback plan by Friday
