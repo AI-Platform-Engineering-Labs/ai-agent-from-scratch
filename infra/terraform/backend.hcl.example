@@ -1,0 +1,6 @@
+# Copy to backend.hcl and fill in the values printed by scripts/bootstrap-tfstate.sh
+resource_group_name  = "rg-tfstate-tinyagent"
+storage_account_name = "tfstatetinyagentXXXXX"
+container_name       = "tfstate"
+key                  = "tiny-agent-prod.tfstate"
+use_azuread_auth     = true
