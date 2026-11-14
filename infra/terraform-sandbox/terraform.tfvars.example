@@ -1,0 +1,5 @@
+# The resource group the playground created for you (shown in the portal and on the lab page).
+resource_group_name = "REPLACE_ME"
+
+# Set to true only if the playground allows Container Registry.
+enable_acr = false
