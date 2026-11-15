@@ -1,0 +1,8 @@
+project_id = "clgcporg-REPLACE_ME"
+
+# Only us-west1 and us-central1 are allowed. Keep the zone inside the region.
+# region = "us-central1"
+# zone   = "us-central1-a"
+
+# Set true only if the playground lets you create Artifact Registry repositories.
+# enable_artifact_registry = false

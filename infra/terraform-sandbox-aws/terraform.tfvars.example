@@ -1,0 +1,10 @@
+region = "us-east-2"
+
+# If the playground lists a pre-created node role, put its name here instead of letting Terraform create one.
+# node_role_name = "eksNodeRole"
+
+# If t3.medium is denied:
+# node_instance_type = "t3.small"
+
+# If managed node groups fail in your playground, create only the cluster and add self-managed nodes yourself:
+# create_node_group = false
